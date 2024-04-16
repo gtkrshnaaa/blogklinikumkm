@@ -30,7 +30,12 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" name="password" id="password" class="form-control">
+                        <div class="input-group">
+                            <input type="password" name="password" id="password" class="form-control" aria-describedby="password-addon">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="show-password">Show</button>
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Add Author</button>
                 </form>
@@ -38,4 +43,16 @@
         </div>
     </div>
     
+    <script>
+        document.getElementById('show-password').addEventListener('click', function() {
+            var passwordInput = document.getElementById('password');
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                this.textContent = "Hide";
+            } else {
+                passwordInput.type = "password";
+                this.textContent = "Show";
+            }
+        });
+    </script>
 @endsection
