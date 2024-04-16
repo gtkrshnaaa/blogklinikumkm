@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mb-5">
-                <div class="card">
+                <div class="card shadow" style="border: none;">
                     <div class="card-header">
                         <h2>{{ $post->title }}</h2>
                         <div class="d-flex">
@@ -49,7 +49,7 @@
                 <div class="row">
                     <!-- Popular Posts -->
                     <div class="col-md-12 mb-4">
-                        <div class="card">
+                        <div class="card shadow" style="border: none;">
                             <h5 class="card-header">Popular Posts</h5>
                             <div class="card-body">
                                 @foreach ($popularPosts as $popularPost)
@@ -76,12 +76,12 @@
 
                     <!-- Categories -->
                     <div class="col-md-12 mb-4">
-                        <div class="card">
+                        <div class="card shadow" style="border: none;">
                             <h5 class="card-header">Categories</h5>
                             <div class="card-body">
                                 <ul class="list-group">
                                     @foreach ($categories as $category)
-                                        <li class="list-group-item">
+                                        <li class="list-group-item" >
                                             <a
                                                 href="{{ route('public.posts.category', $category->id) }}">{{ $category->name }}</a>
                                         </li>

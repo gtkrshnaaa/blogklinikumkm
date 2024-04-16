@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-md-8">
                 <!-- Search Bar -->
-                <div class="card shadow mb-4">
+                <div class="card shadow mb-4" style="border: none;">
                     <h5 class="card-header">Search</h5>
                     <div class="card-body">
                         <form action="/search" method="GET">
@@ -41,7 +41,7 @@
                 <!-- End Search Bar -->
 
                 <!-- Recent Posts -->
-                <div class="card shadow mb-4">
+                <div class="card shadow mb-4" style="border: none;">
                     <h5 class="card-header">All Posts</h5>
                     <div class="card-body">
                         @foreach ($posts as $post)
@@ -56,7 +56,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <div class="card">
+                                        <div class="card" style="border: none;">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $post->title }}</h5>
                                                 <div class="d-flex">
@@ -91,7 +91,7 @@
             </div>
             <div class="col-md-4">
                 <!-- Popular Posts -->
-                <div class="card shadow mb-4">
+                <div class="card shadow mb-4" style="border: none;">
                     <h5 class="card-header">Popular Posts</h5>
                     <div class="card-body">
                         @foreach ($popularPosts as $popularPost)
@@ -118,7 +118,7 @@
                 <!-- End Popular Posts -->
 
                 <!-- Categories -->
-                <div class="card shadow mb-4">
+                <div class="card shadow mb-4" style="border: none;">
                     <h5 class="card-header">Categories</h5>
                     <div class="card-body">
                         <ul class="list-group">
