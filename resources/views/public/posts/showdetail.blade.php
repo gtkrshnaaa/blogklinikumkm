@@ -1,9 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .square-image-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 100%; /* 1:1 Aspect Ratio */
+        overflow: hidden;
+    }
+    .square-image-wrapper img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+</style>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 mb-5">
                 <div class="card">
                     <div class="card-header">
                         <h2>{{ $post->title }}</h2>
@@ -39,8 +56,9 @@
                                     @if ($popularPost->cover_photo)
                                         <div class="row mb-3">
                                             <div class="col-md-4">
-                                                <img src="{{ asset('storage/' . $popularPost->cover_photo) }}"
-                                                    alt="{{ $popularPost->title }}" class="img-fluid">
+                                                <div class="square-image-wrapper">
+                                                    <img src="{{ asset('storage/' . $popularPost->cover_photo) }}" alt="{{ $popularPost->title }}" class="img-fluid">
+                                                </div>
                                             </div>
                                             <div class="col-md-8">
                                                 <h5>{{ $popularPost->title }}</h5>

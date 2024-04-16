@@ -3,6 +3,24 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        .square-image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            /* 1:1 Aspect Ratio */
+            overflow: hidden;
+        }
+
+        .square-image-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -30,9 +48,10 @@
                             @if ($post->cover_photo)
                                 <div class="row mb-3">
                                     <div class="col-md-4">
-                                        <!-- Wrapper untuk gambar dengan background -->
-                                        <div class="image-wrapper"
-                                            style="background-image: url('{{ asset('storage/' . $post->cover_photo) }}'); background-size: cover; background-position: center; height: 100%;">
+                                        <!-- Crop gambar dengan ukuran 1:1 -->
+                                        <div class="square-image-wrapper">
+                                            <img src="{{ asset('storage/' . $post->cover_photo) }}"
+                                                alt="{{ $post->title }}" class="img-fluid">
                                         </div>
                                     </div>
                                     <div class="col-md-8">
@@ -41,19 +60,19 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $post->title }}</h5>
                                                 <div class="d-flex">
-                                                    <p>{{ $post->view_count }} Views</p> &nbsp;&middot;&nbsp;
+                                                    <p>{{ $post->view_count }} Views &nbsp;&middot;&nbsp;
                                                     @if ($post->author)
-                                                        <p>By {{ $post->author->name }}</p>
+                                                        By {{ $post->author->name }}
                                                     @elseif ($post->admin)
-                                                        <p>By {{ $post->admin->name }}</p>
+                                                        By {{ $post->admin->name }}
                                                     @else
-                                                        <p>Creator Unknown</p>
+                                                        Creator Unknown
                                                     @endif
-                                                    &nbsp;&middot;&nbsp; <p>{{ $post->created_at->format('d F Y') }}</p>
-                                                    &nbsp;&middot;&nbsp; <p class="card-text">{{ $post->category->name }}
+                                                    &nbsp;&middot;&nbsp; {{ $post->category->name }}
                                                     </p>
                                                 </div>
-                                                <p class="card-text">{!! \Illuminate\Support\Str::limit(strip_tags($post->content), 100, '...') !!}</p>
+                                                <p class="card-text"> {{ $post->created_at->format('d F Y') }} -
+                                                    {!! \Illuminate\Support\Str::limit(strip_tags($post->content), 100, '...') !!}</p>
                                                 <a href="{{ route('public.posts.showdetail', $post->slug) }}"
                                                     class="btn btn-primary">View Details</a>
                                             </div>
@@ -80,9 +99,8 @@
                             @if ($popularPost->cover_photo)
                                 <div class="row mb-3">
                                     <div class="col-md-4">
-                                        <!-- Wrapper untuk gambar dengan background -->
-                                        <div class="image-wrapper"
-                                            style="background-image: url('{{ asset('storage/' . $popularPost->cover_photo) }}'); background-size: cover; background-position: center; height: 100%;">
+                                        <div class="square-image-wrapper">
+                                            <img src="{{ asset('storage/' . $popularPost->cover_photo) }}" alt="{{ $popularPost->title }}" class="img-fluid">
                                         </div>
                                     </div>
                                     <div class="col-md-8">

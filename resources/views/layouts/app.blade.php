@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Blog Master')</title>
+    <title>@yield('title', 'Klinik UMKM BPR MSA')</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container d-flex justify-content-between">
             <div>
-                <a class="navbar-brand" href="#">Blog Master</a>
+                <a class="navbar-brand" href="#">Klinik UMKM BPR MSA</a>
             </div>
             <div>
                 <ul class="navbar-nav">
